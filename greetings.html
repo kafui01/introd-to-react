@@ -14,7 +14,7 @@
 <body>
 
   <div id="app"></div>
-
+<!--
   <script type="text/babel">
     class Greetings extends React.Component{
       render(){
@@ -30,6 +30,38 @@
     }
 
     ReactDOM.render(<Greetings school="BLOC"/>, document.getElementById('app'));
+    </script>
+  -->
+
+  <script type="text/babel">
+
+      class Counter extends React.Component {
+        render() {
+          return (
+            <div>
+              <img src={this.props.image} alt="Bloc Logo"/>
+              <h2>Current program: {this.props.label}</h2>
+              <p>Current Date: {this.props.date.toLocaleDateString()}</p>
+            </div>
+          );
+        }
+      }
+
+      const info = {
+        date: new Date(),
+        image: 'https://avatars0.githubusercontent.com/u/1441485?v=4&s=280',
+      }
+
+      Counter.defaultProps = {
+        label: "Web Developer Track"
+      }
+
+      ReactDOM.render(
+        <Counter
+          date={info.date}
+          image={info.image}/>,document.getElementById('app')
+      );
+
     </script>
 </body>
 
